@@ -3,10 +3,9 @@ import type { ComponentProps } from "preact";
 
 interface LogoProps extends ComponentProps<"svg"> {
   type?: "icon+text" | "icon" | "text";
-  color?: string;
 }
 
-const EmsatLogo = ({ type = "text", color = "cyan", class: clazz, ...rest }: LogoProps) =>
+const EmsatLogo = ({ type = "text", class: clazz, ...rest }: LogoProps) =>
   type === "text" ? (
     <svg
       width="138"
@@ -14,7 +13,7 @@ const EmsatLogo = ({ type = "text", color = "cyan", class: clazz, ...rest }: Log
       viewBox="0 0 138 38"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      class={clsx(`text-${color} w-auto`, clazz)}
+      class={clsx('w-auto', clazz)}
       {...rest}
     >
       <path

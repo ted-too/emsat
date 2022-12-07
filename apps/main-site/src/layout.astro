@@ -65,7 +65,7 @@ const title = Astro.props.title ? `${Astro.props.title} - Emsat` : "Emsat";
         class="flex items-center justify-between w-full py-8 sm:py-10 px-6 sm:px-8 max-w-[1536px] mx-auto"
       >
         <Link to="/">
-          <EmsatLogo class="hidden sm:block h-9" type="text" />
+          <EmsatLogo class="hidden sm:block h-9 text-cyan" type="text" />
           <EmsatLogo class="sm:hidden h-10" type="icon" />
         </Link>
         <div class="md:flex items-center space-x-8 hidden">
@@ -87,7 +87,7 @@ const title = Astro.props.title ? `${Astro.props.title} - Emsat` : "Emsat";
     <footer class="flex flex-col space-y-16 sm:space-y-32 items-center px-8 md:px-12 pb-8 pt-16 md:pt-24 xl:pt-32 bg-[#F5F5F5]">
       <div class="max-w-7xl grid grid-flow-row grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 xl:grid-cols-6 w-full">
         <div class="flex flex-col items-start space-y-4 w-[18.75rem] col-span-2">
-          <EmsatLogo class="h-9" color="dark" type="text" />
+          <EmsatLogo class="h-9" type="text" />
           <p class="text-xl text-dark-200">Changing farming in Kenya one step at a time</p>
           <Link to="#">
             <Facebook />
@@ -98,7 +98,7 @@ const title = Astro.props.title ? `${Astro.props.title} - Emsat` : "Emsat";
           <div class="flex text-dark-200 flex-col space-y-1">
             <Link underlineHover={true} to="/contact">Contact</Link>
             <Link underlineHover={true} to="/use-terms">Terms of use</Link>
-            <Link underlineHover={true} to="/marketplace">Marketplace</Link>
+            <!-- <Link underlineHover={true} to="/marketplace">Marketplace</Link> -->
           </div>
         </div>
         <div class="flex flex-col space-y-5 sm:w-48 text-lg">
