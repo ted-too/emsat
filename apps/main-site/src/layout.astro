@@ -1,0 +1,126 @@
+---
+import clsx from "clsx";
+import Link from "./components/kit/link";
+import NewsletterForm from "./components/newsletter-form";
+import EmsatLogo from "./components/kit/logos";
+import SideHamburgerMenu from "./components/hamburger-menu";
+import "./base.css";
+import { Facebook } from "./components/kit/icons";
+
+export interface Props {
+  class?: string;
+  title?: string;
+  description?: string;
+  keywords?: string;
+  robots?: string;
+}
+
+const { class: clazz, description = "", keywords = "", robots = "index, follow" } = Astro.props;
+const title = Astro.props.title ? `${Astro.props.title} - Emsat` : "Emsat";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="keywords" content={keywords} />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://emsat.co.ke/" />
+    <meta property="og:title" content="letsbesafe" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://emsat.co.ke/share-image.png" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://emsat.co.ke/" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://emsat.co.ke/share-image.png" />
+    <!-- favicon - (realfavicongenerator.net) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#00aba9" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="flex flex-col min-h-screen">
+      <header
+        class="flex items-center justify-between w-full py-8 sm:py-10 px-6 sm:px-8 max-w-[1536px] mx-auto"
+      >
+        <Link to="/">
+          <EmsatLogo class="hidden sm:block h-9" type="text" />
+          <EmsatLogo class="sm:hidden h-10" type="icon" />
+        </Link>
+        <div class="md:flex items-center space-x-8 hidden">
+          <Link underlineHover={true} to="/our-work">Our work</Link>
+          <Link underlineHover={true} to="/blog">Blog</Link>
+          <Link underlineHover={true} to="/about-us">About us</Link>
+          <Link
+            to="/work-with-us"
+            class="text-white bg-black px-8 h-10 rounded font-light flex items-center"
+            >Work with us</Link
+          >
+        </div>
+        <SideHamburgerMenu client:visible />
+      </header>
+      <main class={clsx("flex flex-col items-center", clazz)}>
+        <slot />
+      </main>
+    </div>
+    <footer class="flex flex-col space-y-16 sm:space-y-32 items-center px-8 md:px-12 pb-8 pt-16 md:pt-24 xl:pt-32 bg-[#F5F5F5]">
+      <div class="max-w-7xl grid grid-flow-row grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 xl:grid-cols-6 w-full">
+        <div class="flex flex-col items-start space-y-4 w-[18.75rem] col-span-2">
+          <EmsatLogo class="h-9" color="dark" type="text" />
+          <p class="text-xl text-dark-200">Changing farming in Kenya one step at a time</p>
+          <Link to="#">
+            <Facebook />
+          </Link>
+        </div>
+        <div class="flex flex-col space-y-5 sm:w-48 text-lg">
+          <span class="font-bold">General</span>
+          <div class="flex text-dark-200 flex-col space-y-1">
+            <Link underlineHover={true} to="/contact">Contact</Link>
+            <Link underlineHover={true} to="/use-terms">Terms of use</Link>
+            <Link underlineHover={true} to="/marketplace">Marketplace</Link>
+          </div>
+        </div>
+        <div class="flex flex-col space-y-5 sm:w-48 text-lg">
+          <span class="font-bold">Sitemap</span>
+          <div class="flex text-dark-200 flex-col space-y-1">
+            <Link underlineHover={true} to="/">Home</Link>
+            <Link underlineHover={true} to="/our-work">Our work</Link>
+            <Link underlineHover={true} to="/blog">Blog</Link>
+            <Link underlineHover={true} to="/about-us">About</Link>
+            <Link underlineHover={true} to="/work-with-us">Work with us</Link>
+          </div>
+        </div>
+        <div class="flex flex-col space-y-5 sm:w-96 text-lg col-span-2">
+          <span class="font-bold">Stay connected!</span>
+          <p class="text-lg text-dark-200">
+            Subscribe to our newsletter and stay up to date with articles, news at the farm and
+            more!
+          </p>
+          <NewsletterForm client:visible />
+        </div>
+      </div>
+      <span class="font-light text-dark-200">All rights reserved © Emsat 2022</span>
+    </footer>
+  </body>
+</html>

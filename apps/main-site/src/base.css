@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-primary;
+  }
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .bg-base {
+    @apply bg-black;
+  }
+  .bg-base-inverse {
+    @apply bg-white;
+  }
+  .text-primary {
+    @apply text-dark-400;
+  }
+  .text-primary-inverse {
+    @apply text-[rgba(255,255,255,0.8)];
+  }
+  .ring-color {
+    @apply ring-black ring-offset-white;
+  }
+  .ring-color-inverse {
+    @apply ring-white ring-offset-black;
+  }
+  .focus-ring {
+    @apply transition duration-300 focus:outline-none focus-within:outline-none ring-color ring-offset-[3.5px] disabled:ring-offset-0 focus-within:ring-1 focus-within:ring-color focus:ring-1 focus:ring-color disabled:ring-0 group-focus:ring-1 group-focus:ring-color;
+  }
+  .focus-ring-inverse {
+    @apply transition duration-300 focus:outline-none focus-within:outline-none ring-color-inverse ring-offset-[3.5px] disabled:ring-offset-0 focus-within:ring-1 focus-within:ring-color-inverse focus:ring-1 focus:ring-color-inverse disabled:ring-0 group-focus:ring-1 group-focus:ring-color-inverse;
+  }
+  .hover-ring {
+    @apply hover:ring-1 hover:ring-color group-hover:ring-1 group-hover:ring-color;
+  }
+  .hover-ring-inverse {
+    @apply hover:ring-1 hover:ring-color-inverse group-hover:ring-1 group-hover:ring-color-inverse;
+  }
+  .no-scroll {
+    overflow: hidden;
+  }
+}
